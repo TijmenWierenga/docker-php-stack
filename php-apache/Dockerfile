@@ -3,12 +3,22 @@ FROM php:7.1.0-apache
 # Set username
 ARG username=user;
 
-# Install packages
+# Install global packages
 RUN apt-get update && apt-get -y --no-install-recommends install \
     ca-certificates \
     curl \
     git \
-    unzip
+    unzip \
+
+# Install PHP packages
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libmcrypt-dev \
+    libpng12-dev \
+
+
+# Install PHP extensions
+    && docker-php-ext-install mcrypt mbstring
 
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

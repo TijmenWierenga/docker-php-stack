@@ -1,3 +1,14 @@
-projects/
-.idea/
-.env
+*
+
+!.gitignore
+
+# Subfolders
+!bin/
+!bin/*
+!php-apache/
+!php-apache/*
+
+# Files
+!.env.dist
+!docker-compose.yml
+!readme.md

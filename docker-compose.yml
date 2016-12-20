@@ -1,0 +1,14 @@
+version: '2'
+services:
+    php-apache:
+        build:
+            context: php-apache
+            args:
+                username: ${USERNAME}
+        ports:
+            - "80:80"
+        volumes:
+            - ./projects:/var/www
+        tty: true
+        hostname: php
+        container_name: tijmenwierenga-php-apache
